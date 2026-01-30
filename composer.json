@@ -1,0 +1,62 @@
+{
+    "name": "marcin-orlowski/disco-toolbar-laravel",
+    "description": "Customizable toolbar for Laravel projects",
+    "type": "library",
+    "version": "2.0.0",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "toolbar",
+        "disco",
+        "navigation",
+        "development"
+    ],
+    "authors": [
+        {
+            "name": "Marcin Orlowski",
+            "email": "mail@marcinOrlowski.com"
+        }
+    ],
+    "provide": {
+        "marcin-orlowski/discotoolbar-laravel": "self.version",
+        "marcin-orlowski/discotoolbar": "self.version"
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0",
+        "symfony/yaml": "^6.4|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^10.5|^11.0",
+        "squizlabs/php_codesniffer": "^3.13",
+        "orchestra/testbench": "^9.0|^10.0"
+    },
+    "conflict": {
+        "marcin-orlowski/disco-toolbar-symfony": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarcinOrlowski\\DiscoToolbar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MarcinOrlowski\\DiscoToolbar\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarcinOrlowski\\DiscoToolbar\\DiscoToolbarServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": [
+            "phpstan analyse",
+            "phpcs"
+        ],
+        "test": "phpunit"
+    }
+}
