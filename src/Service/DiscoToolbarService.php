@@ -157,7 +157,7 @@ class DiscoToolbarService
     private function getVersion(): string
     {
         try {
-            $version = InstalledVersions::getVersion('marcin-orlowski/disco-toolbar-laravel');
+            $version = InstalledVersions::getPrettyVersion('marcin-orlowski/disco-toolbar-laravel');
             return $version ?? self::DEV_VERSION ;
         } catch (\Throwable) {
             return self::DEV_VERSION;
