@@ -2,7 +2,7 @@
     "name": "marcin-orlowski/disco-toolbar-laravel",
     "description": "Customizable toolbar for Laravel projects",
     "type": "library",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "license": "MIT",
     "keywords": [
         "laravel",
