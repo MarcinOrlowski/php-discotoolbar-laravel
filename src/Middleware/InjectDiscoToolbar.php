@@ -22,8 +22,8 @@ namespace MarcinOrlowski\DiscoToolbar\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use MarcinOrlowski\DiscoToolbar\Service\DiscoToolbarService;
+use Symfony\Component\HttpFoundation\Response;
 
 class InjectDiscoToolbar
 {
@@ -32,9 +32,6 @@ class InjectDiscoToolbar
     ) {
     }
 
-    /**
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
         /** @var Response $response */

@@ -2,7 +2,7 @@
     "name": "marcin-orlowski/disco-toolbar-laravel",
     "description": "Customizable toolbar for Laravel projects",
     "type": "library",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "license": "MIT",
     "keywords": [
         "laravel",
@@ -23,14 +23,14 @@
     },
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
         "symfony/yaml": "^6.4|^7.0|^8.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.0",
-        "phpunit/phpunit": "^10.5|^11.0",
+        "phpunit/phpunit": "^10.5|^11.0|^13.0|^13.0",
         "squizlabs/php_codesniffer": "^3.13",
-        "orchestra/testbench": "^9.0|^10.0"
+        "orchestra/testbench": "^9.0|^10.0|^11.0"
     },
     "conflict": {
         "marcin-orlowski/disco-toolbar-symfony": "*"
@@ -53,8 +53,12 @@
         }
     },
     "scripts": {
+        "lint:phpstan": [
+            "vendor/bin/phpstan analyse --no-progress --no-interaction -c phpstan.neon"
+        ],
         "lint": [
-            "phpstan analyse",
+            "Composer\\Config::disableProcessTimeout",
+            "@composer lint:phpstan",
             "phpcs"
         ],
         "test": "phpunit"
