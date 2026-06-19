@@ -76,7 +76,7 @@ class DiscoToolbarService
         if (\is_array($fontAwesomeConfig)) {
             $fontAwesomeEnabled = $fontAwesomeConfig['enabled'] ?? false;
             $userVersion = $fontAwesomeConfig['version'] ?? null;
-            if ($userVersion !== null && \is_string($userVersion)) {
+            if (\is_string($userVersion)) {
                 $fontAwesomeVersion = $userVersion;
             }
         }
@@ -159,7 +159,7 @@ class DiscoToolbarService
         try {
             $version = InstalledVersions::getVersion('marcin-orlowski/disco-toolbar-laravel');
             return $version ?? self::DEV_VERSION ;
-        } catch (\Exception $e) {
+        } catch (\Throwable) {
             return self::DEV_VERSION;
         }
     }
