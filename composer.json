@@ -53,8 +53,12 @@
         }
     },
     "scripts": {
+        "lint:phpstan": [
+            "vendor/bin/phpstan analyse --no-progress --no-interaction -c phpstan.neon"
+        ],
         "lint": [
-            "phpstan analyse",
+            "Composer\\Config::disableProcessTimeout",
+            "@composer lint:phpstan",
             "phpcs"
         ],
         "test": "phpunit"
