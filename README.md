@@ -46,7 +46,7 @@ See [extensive documentation](docs/) for details and usage examples.
 
 ## Notes
 
-There's also [Symfony version](https://github.com/MarcinOrlowski/php-discotoolbar-symfony) of this package! 
+There's also [Symfony version](https://github.com/MarcinOrlowski/php-discotoolbar-symfony) of this package!
 
 [![Symfony Disco Bar](img/banner-symfony.webp)](https://github.com/MarcinOrlowski/php-discotoolbar-symfony)
 
