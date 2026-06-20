@@ -2,7 +2,7 @@
 
 # Changelog
 
-## 2.2.0 (TBD)
+## 2.2.0 (2026-06-20)
 
 - Fixed injected toolbar overlapping host page content.
 - Moved toolbar height into a single `--disco-toolbar-height` CSS custom property.
