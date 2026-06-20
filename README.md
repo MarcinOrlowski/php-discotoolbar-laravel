@@ -42,13 +42,13 @@ See [extensive documentation](docs/) for details and usage examples.
 ## Requirements
 
 - PHP 8.2 or higher
-- Laravel 11.x or 12.x
+- Laravel 11.x or newer
 
 ## Notes
 
 There's also [Symfony version](https://github.com/MarcinOrlowski/php-discotoolbar-symfony) of this package! 
 
-[![x](img/banner-symfony.webp)](https://github.com/MarcinOrlowski/php-discotoolbar-symfony)
+[![Symfony Disco Bar](img/banner-symfony.webp)](https://github.com/MarcinOrlowski/php-discotoolbar-symfony)
 
 ## License
 
