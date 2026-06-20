@@ -31,9 +31,7 @@ on:
     types: [opened, edited, synchronize]
 
 permissions:
-  pull-requests: read
   issues: read
-  statuses: write
 
 jobs:
   validate_pr_title:
@@ -42,7 +40,7 @@ jobs:
 
     steps:
       - name: "Validate title format"
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const prTitle = context.payload.pull_request.title;
@@ -92,8 +90,23 @@ jobs:
               const { data: issue } = await github.rest.issues.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: parseInt(ticketId)
+                issue_number: parseInt(ticketId, 10)
               });
+
+              // The Issues API also returns pull requests (PRs are issues too).
+              // Reject PR numbers so the ID always references a real issue.
+              if (issue.pull_request) {
+                const prUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/pull/${ticketId}`;
+                const errorMessage = '❌ PR title validation failed\n\n' +
+                  '**Issue**: Referenced ID is a pull request, not an issue\n' +
+                  `**ID**: #${ticketId}\n` +
+                  `**Link**: ${prUrl}\n` +
+                  '**Expected**: Ticket ID must reference an issue\n\n' +
+                  `**Current title**: "${prTitle}"`;
+
+                core.setFailed(errorMessage);
+                return;
+              }
 
               console.log(`✓ Ticket #${ticketId} (${issue.state}): ${issue.title}`);
 
