@@ -142,8 +142,16 @@
         padding: 6px 8px;
     }
 
-    body:has(.disco-toolbar) .wrapper {
+    /* Reserve space so the fixed 40px bar doesn't overlap page content. */
+    body:has(.disco-toolbar) {
         padding-top: 40px;
+    }
+
+    /* Offset elements pinned to the very top (e.g. sticky navbars) so they sit
+       below the toolbar instead of sliding under it on scroll. Targets the
+       common Tailwind `sticky top-0` convention; a no-op for apps without it. */
+    body:has(.disco-toolbar) .sticky.top-0 {
+        top: 40px;
     }
 </style>
 

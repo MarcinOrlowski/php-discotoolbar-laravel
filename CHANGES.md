@@ -2,6 +2,10 @@
 
 # Changelog
 
+## 2.2.0 (TBD)
+
+- Fixed injected toolbar overlapping host page content.
+
 ## 2.1.0 (2026-06-19)
 
 - Added support for Laravel 13.x.
