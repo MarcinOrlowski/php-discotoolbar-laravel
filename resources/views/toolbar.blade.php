@@ -3,6 +3,12 @@
 
 <style>
     /* DiscoToolbar for development environment */
+    :root {
+        /* Single source of truth for the toolbar height. Referenced by the bar
+           itself and by the spacer/offset rules so the value can't drift. */
+        --disco-toolbar-height: 40px;
+    }
+
     .disco-toolbar {
         position: fixed;
         top: 0;
@@ -62,8 +68,8 @@
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        height: 40px;
-        min-height: 40px;
+        height: var(--disco-toolbar-height);
+        min-height: var(--disco-toolbar-height);
         overflow: hidden;
     }
 
@@ -142,8 +148,16 @@
         padding: 6px 8px;
     }
 
-    body:has(.disco-toolbar) .wrapper {
-        padding-top: 40px;
+    /* Reserve space so the fixed bar doesn't overlap page content. */
+    body:has(.disco-toolbar) {
+        padding-top: var(--disco-toolbar-height);
+    }
+
+    /* Offset elements pinned to the very top (e.g. sticky navbars) so they sit
+       below the toolbar instead of sliding under it on scroll. Targets the
+       common Tailwind `sticky top-0` convention; a no-op for apps without it. */
+    body:has(.disco-toolbar) .sticky.top-0 {
+        top: var(--disco-toolbar-height);
     }
 </style>
 

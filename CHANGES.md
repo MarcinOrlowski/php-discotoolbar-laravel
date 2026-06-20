@@ -2,6 +2,11 @@
 
 # Changelog
 
+## 2.2.0 (2026-06-20)
+
+- Fixed injected toolbar overlapping host page content.
+- Moved toolbar height into a single `--disco-toolbar-height` CSS custom property.
+
 ## 2.1.0 (2026-06-19)
 
 - Added support for Laravel 13.x.
